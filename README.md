@@ -153,6 +153,39 @@ python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
 - GPU: NVIDIA RTX 3090, A100, or better
 - RAM: 32GB+ system RAM
 
+## Tutorial Formats
+
+This tutorial is available in **two formats**:
+
+### 📓 Jupyter Notebooks (Interactive - Recommended for Learning!)
+Perfect for learning and experimentation. Run cells interactively, modify code, and see results immediately.
+
+- `notebooks/01_basic_int8_quantization.ipynb`
+- `notebooks/02_4bit_quantization.ipynb`
+- `notebooks/03_llm_bitsandbytes.ipynb`
+- `notebooks/04_gptq_quantization.ipynb`
+- `notebooks/05_comparison_benchmark.ipynb`
+
+**Run with:**
+```bash
+jupyter notebook notebooks/
+# Or use JupyterLab, VS Code, or Google Colab
+```
+
+### 🐍 Python Scripts (Standalone - Ready to Run!)
+Complete standalone scripts. Run start-to-finish without interaction.
+
+- `examples/01_basic_int8_quantization.py`
+- `examples/02_4bit_quantization.py`
+- `examples/03_llm_bitsandbytes.py`
+- `examples/04_gptq_quantization.py`
+- `examples/05_comparison_benchmark.py`
+
+**Run with:**
+```bash
+python examples/01_basic_int8_quantization.py
+```
+
 ## Tutorial Examples
 
 ### Example 1: Basic INT8 Quantization

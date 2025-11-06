@@ -47,13 +47,22 @@ python verify_setup.py
 
 If you see "✓ SETUP COMPLETE", you're ready to go!
 
-## 4. Run Your First Example
+## 4. Choose Your Format
 
+The tutorial is available in **two formats**:
+
+### Option A: Jupyter Notebooks (📓 Interactive - Best for Learning!)
+```bash
+jupyter notebook notebooks/
+# Then open: 01_basic_int8_quantization.ipynb
+```
+
+### Option B: Python Scripts (🐍 Quick Run)
 ```bash
 python examples/01_basic_int8_quantization.py
 ```
 
-This will teach you:
+**Either way, you'll learn:**
 - What quantization is
 - Symmetric vs asymmetric quantization
 - Per-tensor vs per-channel quantization
