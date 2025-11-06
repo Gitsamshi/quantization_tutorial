@@ -71,9 +71,10 @@ def get_gpu_memory_usage():
 
 
 def clear_gpu_memory():
-    """Clear GPU memory."""
+    """Clear GPU memory and reset tracking."""
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats()
         torch.cuda.synchronize()
 
 
@@ -83,7 +84,6 @@ def load_model_fp16(model_name: str):
 
     print(f"\nLoading {model_name} in FP16...")
     clear_gpu_memory()
-    start_mem = get_gpu_memory_usage()
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
@@ -92,29 +92,32 @@ def load_model_fp16(model_name: str):
         device_map="auto",
     )
 
-    end_mem = get_gpu_memory_usage()
-    memory_used = end_mem - start_mem
+    memory_used = torch.cuda.max_memory_allocated() / 1e9 if torch.cuda.is_available() else 0
 
     return model, tokenizer, memory_used
 
 
 def load_model_8bit(model_name: str):
     """Load model in 8-bit precision using bitsandbytes."""
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
     print(f"\nLoading {model_name} in INT8 (bitsandbytes)...")
     clear_gpu_memory()
-    start_mem = get_gpu_memory_usage()
+
+    # Configure INT8 quantization
+    bnb_config = BitsAndBytesConfig(
+        load_in_8bit=True,
+        llm_int8_threshold=6.0,
+    )
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        load_in_8bit=True,
+        quantization_config=bnb_config,
         device_map="auto",
     )
 
-    end_mem = get_gpu_memory_usage()
-    memory_used = end_mem - start_mem
+    memory_used = torch.cuda.max_memory_allocated() / 1e9 if torch.cuda.is_available() else 0
 
     return model, tokenizer, memory_used
 
@@ -125,7 +128,6 @@ def load_model_4bit(model_name: str):
 
     print(f"\nLoading {model_name} in NF4 (bitsandbytes)...")
     clear_gpu_memory()
-    start_mem = get_gpu_memory_usage()
 
     # Configure 4-bit quantization
     bnb_config = BitsAndBytesConfig(
@@ -142,8 +144,7 @@ def load_model_4bit(model_name: str):
         device_map="auto",
     )
 
-    end_mem = get_gpu_memory_usage()
-    memory_used = end_mem - start_mem
+    memory_used = torch.cuda.max_memory_allocated() / 1e9 if torch.cuda.is_available() else 0
 
     return model, tokenizer, memory_used
 
