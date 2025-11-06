@@ -23,11 +23,52 @@
 
 - Python 3.8 or higher
 - CUDA 11.8+ or 12.0+
-- pip or conda package manager
+- uv (recommended), pip, or conda package manager
 
 ## Installation
 
-### Option 1: Quick Install (pip)
+### Option 1: Quick Install with uv (⚡ Recommended - 10-100× faster!)
+
+[uv](https://github.com/astral-sh/uv) is an extremely fast Python package installer and resolver written in Rust.
+
+```bash
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Or on Windows (PowerShell): irm https://astral.sh/uv/install.ps1 | iex
+
+# Clone the repository
+git clone <repository-url>
+cd quantization_tutorial
+
+# Create environment and install all dependencies (single command!)
+uv sync
+
+# Activate the virtual environment
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Verify installation
+python -c "import torch; print(f'PyTorch: {torch.__version__}'); print(f'CUDA available: {torch.cuda.is_available()}')"
+```
+
+**Why uv?**
+- 10-100× faster than pip
+- Better dependency resolution
+- Automatic virtual environment management
+- Compatible with requirements.txt and pyproject.toml
+
+**Optional extras:**
+```bash
+# Install with visualization support
+uv sync --extra viz
+
+# Install with GPTQ support
+uv sync --extra gptq
+
+# Install everything including dev tools
+uv sync --extra all
+```
+
+### Option 2: Traditional pip Install
 
 ```bash
 # Clone the repository
@@ -45,7 +86,7 @@ pip install -r requirements.txt
 python -c "import torch; print(f'PyTorch: {torch.__version__}'); print(f'CUDA available: {torch.cuda.is_available()}')"
 ```
 
-### Option 2: Conda Install
+### Option 3: Conda Install
 
 ```bash
 # Create conda environment

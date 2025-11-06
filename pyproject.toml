@@ -1,0 +1,68 @@
+[project]
+name = "quantization-tutorial"
+version = "1.0.0"
+description = "Comprehensive LLM quantization tutorial with executable GPU examples"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "LLM Quantization Tutorial"}
+]
+keywords = ["llm", "quantization", "machine-learning", "deep-learning", "pytorch", "gpu"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "transformers>=4.35.0",
+    "accelerate>=0.25.0",
+    "bitsandbytes>=0.41.0",
+    "sentencepiece>=0.1.99",
+    "protobuf>=3.20.0",
+]
+
+[project.optional-dependencies]
+gptq = [
+    "auto-gptq>=0.5.0; platform_machine == 'x86_64'",
+]
+viz = [
+    "matplotlib>=3.7.0",
+]
+dev = [
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0",
+]
+all = [
+    "auto-gptq>=0.5.0; platform_machine == 'x86_64'",
+    "matplotlib>=3.7.0",
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Gitsamshi/quantization_tutorial"
+Documentation = "https://github.com/Gitsamshi/quantization_tutorial/blob/main/README.md"
+Repository = "https://github.com/Gitsamshi/quantization_tutorial"
+Issues = "https://github.com/Gitsamshi/quantization_tutorial/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+# UV-specific configuration
+dev-dependencies = [
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0",
+]

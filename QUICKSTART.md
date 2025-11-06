@@ -21,13 +21,18 @@ cd quantization_tutorial
 
 # Install dependencies (choose one)
 
-# Option A: Full installation (recommended)
+# Option A: Using uv (⚡ FASTEST - recommended!)
+curl -LsSf https://astral.sh/uv/install.sh | sh  # Install uv first
+uv sync  # Create venv and install everything
+source .venv/bin/activate  # Activate environment
+
+# Option B: Full installation with pip
 pip install -r requirements.txt
 
-# Option B: Minimal installation (for basic examples)
+# Option C: Minimal installation (for basic examples)
 pip install torch numpy
 
-# Option C: Using conda
+# Option D: Using conda
 conda create -n quant python=3.10
 conda activate quant
 conda install pytorch pytorch-cuda=12.1 -c pytorch -c nvidia
@@ -112,6 +117,14 @@ for i in {01..05}; do python examples/${i}_*.py; done
 
 # Run with specific GPU
 CUDA_VISIBLE_DEVICES=0 python examples/03_llm_bitsandbytes.py
+
+# uv-specific commands
+uv sync                    # Install/update dependencies
+uv sync --extra viz        # Install with visualization support
+uv sync --extra all        # Install all optional dependencies
+uv add <package>           # Add a new package
+uv pip list                # List installed packages
+uv run python script.py    # Run script in uv-managed environment
 ```
 
 ## What You'll Learn

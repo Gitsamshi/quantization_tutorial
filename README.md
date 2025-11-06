@@ -105,10 +105,36 @@ For a 7B parameter model (7 billion parameters):
 
 ### Installation
 
+**Using uv (recommended - much faster!):**
+
+```bash
+# Install uv if you haven't already
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Clone the repository
+git clone <repository-url>
+cd quantization_tutorial
+
+# Create environment and install dependencies (all in one command!)
+uv sync
+
+# Activate the virtual environment
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Verify GPU availability
+python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+```
+
+**Alternative - using pip:**
+
 ```bash
 # Clone the repository
 git clone <repository-url>
 cd quantization_tutorial
+
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
