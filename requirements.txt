@@ -1,0 +1,22 @@
+# Core dependencies
+torch>=2.0.0
+numpy>=1.24.0
+
+# For Examples 3-5: Real LLM quantization
+transformers>=4.35.0
+accelerate>=0.25.0
+bitsandbytes>=0.41.0
+
+# For Example 4: GPTQ quantization (optional)
+auto-gptq>=0.5.0; platform_machine == "x86_64"
+
+# For visualizations in Example 5 (optional)
+matplotlib>=3.7.0
+
+# Additional utilities
+sentencepiece>=0.1.99  # For some tokenizers
+protobuf>=3.20.0
+
+# Development dependencies (optional)
+jupyter>=1.0.0  # If you want to run in notebooks
+ipywidgets>=8.0.0  # For notebook progress bars
