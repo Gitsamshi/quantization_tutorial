@@ -1,21 +1,65 @@
-# LLM Quantization Tutorial
+# LLM Quantization & Reinforcement Learning Tutorial
 
-A comprehensive, hands-on tutorial for understanding and implementing Large Language Model (LLM) quantization with executable GPU examples.
+A comprehensive, hands-on tutorial for understanding and implementing:
+1. **LLM Quantization** - Reduce memory footprint and increase inference speed
+2. **Reinforcement Learning from Human Feedback (RLHF)** - Align models with human preferences
+
+All examples include mathematical derivations, paper references, and executable GPU code.
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [What is Quantization?](#what-is-quantization)
-3. [Why Quantization Matters](#why-quantization-matters)
-4. [Types of Quantization](#types-of-quantization)
-5. [Setup Instructions](#setup-instructions)
-6. [Tutorial Examples](#tutorial-examples)
-7. [Performance Benchmarks](#performance-benchmarks)
-8. [References](#references)
+2. [Quantization Tutorial](#quantization-tutorial)
+3. [Reinforcement Learning Tutorial](#reinforcement-learning-tutorial)
+4. [What is Quantization?](#what-is-quantization)
+5. [Why Quantization Matters](#why-quantization-matters)
+6. [Types of Quantization](#types-of-quantization)
+7. [Setup Instructions](#setup-instructions)
+8. [Tutorial Examples](#tutorial-examples)
+9. [Performance Benchmarks](#performance-benchmarks)
+10. [References](#references)
 
 ## Introduction
 
-This tutorial provides practical, executable examples for quantizing Large Language Models (LLMs) to reduce memory footprint and increase inference speed on GPUs. All examples are designed to run on CUDA-enabled GPUs.
+This repository contains two comprehensive tutorials for working with Large Language Models:
+
+### 1. Quantization Tutorial (This Document)
+Practical, executable examples for quantizing LLMs to reduce memory and increase speed on GPUs.
+
+### 2. Reinforcement Learning Tutorial ([RL_TUTORIAL.md](RL_TUTORIAL.md))
+Complete guide to RLHF with mathematical derivations covering:
+- **PPO** (Proximal Policy Optimization)
+- **DPO** (Direct Preference Optimization)
+- **GRPO** (Group Relative Policy Optimization)
+- **REINFORCE** and reward modeling
+
+---
+
+## Quantization Tutorial
+
+Learn how to reduce LLM memory footprint and increase inference speed through quantization.
+
+## Reinforcement Learning Tutorial
+
+**📚 [See RL_TUTORIAL.md for the complete RLHF guide](RL_TUTORIAL.md)**
+
+Learn how to align language models with human preferences using state-of-the-art RL algorithms:
+
+### RL Examples Available
+
+- `examples/rl_01_reinforce.py` - Basic REINFORCE policy gradient
+- `examples/rl_02_ppo_training.py` - PPO with mathematical derivations
+- `examples/rl_03_dpo_training.py` - Direct Preference Optimization
+- `examples/rl_04_grpo_training.py` - Group Relative Policy Optimization
+- `examples/rl_05_reward_modeling.py` - Train reward models from preferences
+
+Each example includes:
+- ✅ Complete mathematical derivations
+- ✅ Paper references
+- ✅ Executable code with detailed comments
+- ✅ Practical tips and common pitfalls
+
+---
 
 ## What is Quantization?
 
