@@ -63,6 +63,7 @@ huggingface/
 *.png
 *.jpg
 *.pdf
+!papers/*.pdf
 outputs/
 results/
 
